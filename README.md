@@ -19,7 +19,7 @@ Awesome Model Watermarking And Fingerprint
 梳理了目前为了保护模型知识产权而提出的各类水印方案，按照提取水印时所具备的不同条件，将其分为白盒水印、黑盒水印和无盒水印 3 类方法，并对各类方法按照水印嵌入机制或适用模型对象的不同进行细分，深入分析了各类方法的主要原理、实现手段和发展趋势。
 
 ### Deep Watermarking for Deep Intellectual Property Protection: A Comprehensive Survey
-**[[Paper]](https://papers.ssrn.com/sol3/Delivery.cfm/f9d1a497-01d6-4174-90bd-c81d0a38946d-MECA.pdf?abstractid=4697020&mirid=1)**  | *2024*
+**[[Paper]](https://papers.ssrn.com/sol3/Delivery.cfm/f9d1a497-01d6-4174-90bd-c81d0a38946d-MECA.pdf?abstractid=4697020&mirid=1)**  | *SSRN 2024*
 
 对主流的深度学习模型 IP 保护方法进行了全面综述，涵盖了深度IP保护的多个方面：问题定义、主要威胁和挑战、深度水印方法的优缺点、评价指标和性能讨论。
 
