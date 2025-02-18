@@ -27,6 +27,9 @@ Awesome Model Watermarking And Fingerprint
 
 
 # <span id="Watermark">Watermark</span> [^](#back)
+
+## White-box
+
 ### Embedding watermarks into deep neural networks
 **[[Paper]](https://arxiv.org/pdf/1701.04082)**  | **[[Code]](https://github.com/yu4u/dnn-watermark)**  |  **[[Link]](https://zhuanlan.zhihu.com/p/689918179)**  | *ICMR 2017*
 
@@ -98,6 +101,23 @@ Awesome Model Watermarking And Fingerprint
 
 设计了一种新的专用模型PTYNet（Resnet18），专门用于嵌入水印（用于确定输入是否包含特定模式，对于正常输入保持沉默，对于生成的背景进行特定响应），在接收验证样本时激活所有权验证。将PTYNet 和目标模型的输出通过加权组合生成最终的预测概率分布。  
 
+### Delving in the loss landscape to embed robust watermarks into neural networks
+**[[Paper]](https://ailb-web.ing.unimore.it/icpr/media/posters/10989.pdf)** | **[[Code]](https://github.com/EIDOSlab/Delving-in-the-loss-landscape-to-embed-robust-watermarks-into-neural-networks)** | *ICPR 2021*
+
+利用模型的冗余和适应能力，锁定一部分参数来携带水印序列。通过在损失函数中添加项，找到损失函数的最小值，确保水印嵌入的参数位于landscape的谷底。
+
+### Protecting Deep Learning Model Copyrights with Adversarial Example-Free Reuse Detection
+**[[Paper]](https://arxiv.org/pdf/2407.03883)** | *arXiv 2024*
+
+基于神经元功能分析的重用检测器，它只需要正常的测试样本即可通过测量模型在新提出的模型表征（即神经元功能（NF））上的差异来检测重用关系。文章使用欧氏距离和余弦距离来衡量神经元功能的相似性。可以适用于黑盒/白盒环境。
+
+### Steganographic Passport: An Owner and User Verifiable Credential for Deep Model IP Protection Without Retraining
+**[[Paper]](https://arxiv.org/pdf/2404.02889)** | *CVPR 2024*
+
+提出了一种新颖的隐写护照，将用户许可证验证与所有权验证解耦。所有权验证，通过将模型权重与所有者端的哈希输出对齐来保持模型权重的唯一护照，允许模型所有者证明分布式模型的所有权和真实性。许可权验证，可以使用用户侧护照提取任何许可用户的隐藏身份 (ID) 图像。实现在不需要重新训练模型的情况下，未注册用户提供可验证的使用许可。
+
+## Black-box
+
 ### Turning your weakness into a strength: Watermarking deep neural networks by backdooring
 **[[Paper]](https://openreview.net/pdf?id=RNl51vzvDE)** | **[[Code]](https://github.com/adiyoss/WatermarkNN)**  | **[[Link]](https://medium.com/@carstenbaum/the-ubiquity-of-machine-learning-and-its-challenges-to-intellectual-property-dc38e7d66b05)** | *USENIX  2018*
 
@@ -132,7 +152,64 @@ EWE 在任务数据中插入添加了触发器的水印样本，并将这些样�
 **[[Paper]](https://link.springer.com/content/pdf/10.1007/978-3-030-47436-2_35.pdf)** | *PAKDD  2020*
 生成一个包含添加微小扰动的图像数据集，这些样本被赋予一个新的类别标签，用作水印样本。将生成的关键样本加入原始数据集，并训练模型使其能够识别这些水印样本所代表的新增类别。通过向可疑模型查询关键样本，检测是否能正确分类到新增类别，验证模型是否嵌入水印。
 
+### Secure Neural Network Watermarking Protocol against Forging Attack
+**[[Paper]](https://dl.acm.org/doi/abs/10.1186/s13640-020-00527-1)** | *EURASIP Journal on Image and Video Processing 2020*
+
+引入单向哈希函数，使得用于证明所有权的触发集样本必须通过连续的哈希逐个形成，并且它们的标签也按照样本的哈希值指定。通过这样设定，没有网络训练权限的攻击者就不可能构建伪造水印。
+
+### Margin-based Neural Network Watermarking
+**[[Paper]](https://openreview.net/pdf?id=bwBeCyuFZh)** | **[[Code]](https://github.com/matbambbang/margin-based-watermarking)** | *ICML  2023*
+
+提出了一种基于边缘的DNN水印方法，该方法通过在训练期间使用投影梯度上升法来最大化水印样本的边缘，使得攻击者在不损害模型准确性的情况下无法改变预测标签。
+
+### Certified Neural Network Watermarks with Randomized Smoothing
+**[[Paper]](https://arxiv.org/pdf/2207.07972)** | **[[Code]](https://github.com/arpitbansal297/certified_watermarks)** | *ICML 2022*
+
+不直接将信息嵌入到模型参数中，但由于验证水印时仍然需要访问模型参数，因此这种水印方法仍然属于白盒水印。通过引入触发集准确性函数的平滑版本来进行所有权验证，而验证过程中需要对模型参数的访问。
+
+### Towards Robust Model Watermark via Reducing Parametric Vulnerability
+**[[Paper]](https://openaccess.thecvf.com/content/ICCV2023/papers/Gan_Towards_Robust_Model_Watermark_via_Reducing_Parametric_Vulnerability_ICCV_2023_paper.pdf)** | **[[Code]](https://github.com/GuanhaoGan/robust-model-watermarking)** | *ICCV 2023*
+
+水印模型的参数空间附近存在许多水印去除模型，提出了一种最小最大公式来找到这些水印去除模型并恢复它们的水印行为。通过最大化扰动来找到具有最低水印成功率（WSR）的最坏情况模型，并最小化扰动来恢复水印行为。
+
+### Explanation as a Watermark: Towards Harmless and Multi-bit Model Ownership Verification via Watermarking Feature Attribution
+**[[Paper]](https://arxiv.org/pdf/2405.04825)** | **[[Code]](https://github.com/shaoshuo-ss/EaaW)** | *NDSS  2025*
+
+后门水印的缺点——有害性(向带水印的发布模型引入了恶意可控的错误分类行为)，模糊性(恶意用户可以通过寻找其他错误分类的样本来轻松通过验证，从而导致所有权模糊)。这两个限制都源于现有水印方法都是利用错误分类进行预测，该方法在不改变原始预测的情况下，将“多位”水印嵌入到特定触发样本的特征归因解释中。
+
+### MEA-Defender: A Robust Watermark against Model Extraction Attack
+**[[Paper]](https://arxiv.org/pdf/2401.15239)** | **[[Code]](https://github.com/lvpeizhuo/MEA-Defender)** | *S&P 2024*
+
+通过在输入域中组合来自两个源类的两个样本来获得水印，并设计一个水印损失函数，使水印的输出域位于主任务样本的输出域内。设计了一个独特的后门，称为共生后门，并将其作为水印嵌入到待保护的DNN模型中。 共生后门保证了水印样本的输入域（即输入样本的数据分布）和输出特征域（即分类层输出特征的数据分布）应处于主水印样本的分布中。 
+
+### Non-transferable learning：A new approach for model ownership verification and applicability authorization
+**[[Paper]](https://openreview.net/pdf?id=tYRrOdSnVUy)** | **[[Code]](https://github.com/conditionWang/NTL)** | *ICLR 2022 Oral*
+
+限制模型的泛化能力，使其更加专注于特定的领域，从而验证模型的所有权并授权其在特定数据上的适用性。
+通过让模型专注于学习与特定领域相关的特征，从而使模型在目标领域上具有低性能。这种方法与领域泛化和适应的思路不同，后者通常致力于提高模型在不同领域间的适用性。NTL则反其道而行，使模型只适用于特定领域，同时在其他领域上表现较差。
+
+### Probabilistically Robust Watermarking of Neural Networks
+**[[Paper]](https://arxiv.org/pdf/2401.08261)** | *IJCAI  2024*
+
+不需要额外的模型训练，可以应用于任何模型架构。 方法的关键思想是计算触发集，该触发集可以在源模型和代理模型集之间以高概率转移。
+
+### Multi-bit, Black-box Watermarking of Deep Neural Networks in Embedded Applications
+**[[Paper]](https://openaccess.thecvf.com/content/CVPR2024W/EVW/papers/Leroux_Multi-bit_Black-box_Watermarking_of_Deep_Neural_Networks_in_Embedded_Applications_CVPRW_2024_paper.pdf)** | *CVPR 2024*
+
+引入了一种新颖的多位水印方法，能够有效地生成大量模型实例。 这些实例中的每一个都保持功能等效性，但在使用预定义的触发输入进行提示时表现出独特的行为。
+
+### Not Just Change the Labels, Learn the Features: Watermarking Deep Neural Networks with Multi-View Data
+**[[Paper]](https://arxiv.org/pdf/2403.10663)** | **[[Code]](https://github.com/liyuxuan-github/MAT)** | *ECCV 2024*
+
+从特征学习的角度引入了触发集水印方法的全新视角。通过选择具有多重特征的数据（即多视角数据），可以有效地防御功能窃取攻击。基于这一视角，提出了一种基于多视角数据的新型水印技术，称为MAT，用于有效地嵌入水印到DNN中。该方法包括构建一个包含多视角数据的触发集，并结合一种简单的基于特征的正则化方法来训练源模型。
+
 # <span id="Fingerprint">Fingerprint</span> [^](#back)
+### Sensitive-Sample Fingerprinting of Deep Neural Networks
+**[[Paper]](https://openaccess.thecvf.com/content_CVPR_2019/html/He_Sensitive-Sample_Fingerprinting_of_Deep_Neural_Networks_CVPR_2019_paper.html)** | **[[Code]](https://github.com/zechenghe/Sensitive_Sample_Fingerprinting)** | *CVPR 2019*
+
+提出了一种基于敏感样本的深度神经网络篡改检测方法。首先通过生成敏感样本，识别出模型在权重扰动下的变化，进而检测是否存在篡改。然而，单一的敏感样本可能无法覆盖所有神经元，导致部分权重变化无法被检测。为了解决这一问题，提出了最大激活神经元覆盖（MANC）算法，利用贪心策略从多个敏感样本中选择最能激活神经元的样本集合，以确保尽可能多的神经元被激活，从而生成准确的DNN模型“指纹”，用于模型验证和篡改检测。
+
+
 ### Fingerprinting Deep Neural Networks – A DeepFool Approach  
 **[[Paper]](https://dr.ntu.edu.sg/bitstream/10356/147023/2/2021021379.pdf)**  | *ISCAS 2021*
 
@@ -164,3 +241,25 @@ EWE 在任务数据中插入添加了触发器的水印样本，并将这些样�
 **[[Paper]](https://arxiv.org/pdf/1912.00888)** | **[[Code]](https://github.com/ayberkuckun/DNN-Fingerprinting?tab=readme-ov-file)** | *ICLR  2021*
 
 基于可传递对抗样本，利用源模型与替代模型在对抗性弱点上的共同特性。通过优化一种特殊的目标函数，最大化样本在替代模型上的传递性，同时最小化其在参考模型上的传递性，生成可以区分替代模型和参考模型的对抗样本。
+
+### PublicCheck: Public Integrity Veriﬁcation for Services of Run-time Deep Models
+**[[Paper]](https://ieeexplore.ieee.org/document/10179380)** | *S&P  2023*
+
+验证模型的完整性。为了捕获和识别运行时模型的固有预测行为，PublicCheck 生成平滑转换和增强的封装样本，这些样本包含在模型的决策边界周围，同时确保验证查询与正常查询无法区分。
+
+### Intersecting-Boundary-Sensitive Fingerprinting for Tampering Detection of DNN Models
+**[[Paper]](https://dl.acm.org/doi/10.5555/3692070.3694306)** | **[[Code]](https://github.com/CGCL-codes/IBSF)** | *ICML  2024*
+
+提出了交叉边界敏感指纹识别 (IBSF)，仅使用 top-1 标签对 DNN 模型进行黑盒完整性验证。篡改模型会改变其决策边界，IBSF 通过最大化所选类别子集的部分香农熵，将指纹样本定位在子集中类别相交的决策边界附近，从而从正常样本中制作指纹样本。
+
+### Model Barrier: A Compact Un-Transferable Isolation Domain for Model Intellectual Property Protection
+**[[Paper]](https://arxiv.org/pdf/2303.11078)** | *CVPR  2023*
+
+出了一种称为紧凑不可转移隔离（CUTI）域的新方法，以防止深度模型从授权域非法转移到未授权域。
+
+### MAP: MAsk-Pruning for Source-Free Model Intellectual Property Protection
+**[[Paper]](https://arxiv.org/abs/2403.04149)** | **[[Code]](https://github.com/ispc-lab/MAP)** | *CVPR  2024*
+
+在训练良好的模型中，存在与特定目标域相关的参数。通过学习一个目标特定的二进制掩码来剪枝这些参数，从而在最小化对授权数据性能影响的同时，防止未授权数据的使用。
+
+
