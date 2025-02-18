@@ -1,8 +1,6 @@
 Awesome Model Watermarking And Fingerprint
 ========================
 **This repository compiles a list of papers related to intellectual property (IP) protection for deep learning models.**
-  
-**持续更新中....  过段时间会更新较新的相关文章，对内容进一步分类！
 
 ## <span id="back">Contents</span>
 - [Survey](#Survey)
