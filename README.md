@@ -202,6 +202,12 @@ EWE 在任务数据中插入添加了触发器的水印样本，并将这些样�
 从特征学习的角度引入了触发集水印方法的全新视角。通过选择具有多重特征的数据（即多视角数据），可以有效地防御功能窃取攻击。基于这一视角，提出了一种基于多视角数据的新型水印技术，称为MAT，用于有效地嵌入水印到DNN中。该方法包括构建一个包含多视角数据的触发集，并结合一种简单的基于特征的正则化方法来训练源模型。
 
 # <span id="Fingerprint">Fingerprint</span> [^](#back)
+
+### CSF: Black-box Fingerprinting via Compositional Semantics for Text-to-Image Models
+**[[Paper]](https://arxiv.org/abs/2604.16363)** | **[[Code]](https://github.com/JunHoo-Lee/CSF-Black-box-Fingerprinting-via-Compositional-Semantics-for-Text-to-Image-Models)** | **[[Project]](https://junhoo.me/csf)** | *CVPR 2026*
+
+CSF 使用组合语义提示和模型查询输出，对微调后的文生图模型进行来源归属分析，无需预先嵌入水印或访问模型内部参数。
+
 ### Sensitive-Sample Fingerprinting of Deep Neural Networks
 **[[Paper]](https://openaccess.thecvf.com/content_CVPR_2019/html/He_Sensitive-Sample_Fingerprinting_of_Deep_Neural_Networks_CVPR_2019_paper.html)** | **[[Code]](https://github.com/zechenghe/Sensitive_Sample_Fingerprinting)** | *CVPR 2019*
 
